@@ -1,9 +1,7 @@
-function App(interactor) {
-	interactor.setResponder(function(results) {
-		$('#searchResults').val(results);
-	});
-	new SearchView({el : $('#container')}).render();
-	this.search = function(query) {
-		interactor.search(query);
-	};
-};
+var app = app || {};
+var ENTER_KEY = 13;
+var ESC_KEY = 27;
+$(function () {
+	'use strict';
+	new app.MovieRateView();
+});
