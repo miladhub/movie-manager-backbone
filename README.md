@@ -10,7 +10,7 @@ Installation
 ------------
 
 ```sh
-$ git clone https://github.com/miladhub/movie-manager-javascript.git movie
+$ git clone https://github.com/miladhub/movie-manager-backbone.git movie
 $ cd movie
 $ mvn clean install
 ...
