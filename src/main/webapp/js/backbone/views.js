@@ -11,8 +11,7 @@ var app = app || {};
 	app.DashboardView = Backbone.View.extend({
 		el: '#rates',
 		initialize: function() {
-			app.movies.add(new Movie({title: 'a scanner darkly', author: 'ridley scott', rates: 100}));
-			app.movies.add(new Movie({title: 'blade runner', author: 'ridley scott', rates: 200}));
+			this.listenTo(app.movies, 'all', this.render);
 		},
 		render: function() {
 			this.addAll();
@@ -22,8 +21,8 @@ var app = app || {};
 			app.movies.each(this.addOne, this);
 		},
 		addOne: function (movie) {
-			var view = new app.MovieView({ model: movie });
+			var view = new app.MovieRateView({ model: movie });
 			this.$el.append(view.render().el);
 		}
 	});
-)(jQuery);
+})(jQuery);

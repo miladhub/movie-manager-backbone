@@ -9,8 +9,7 @@ var app = app || {};
 		}
 	});
 	var Movies = Backbone.Collection.extend({
-		model: app.Movie,
-		localStorage: new Backbone.LocalStorage('movies-backbone')
+		model: app.Movie
 	});
 	app.movies = new Movies();
 })();

@@ -1,34 +1,22 @@
-function TestInteractor() {
-	this.searched = "";
-	this.setResponder = function(resultsResponder) {
-		this.resultsResponder = resultsResponder;
-	};
-	this.search = function(query) {
-		this.searched = query;
-	};
-}
-
-var app;
-
-describe("Movie manager Backbone suite", function() {
+describe("Movie manager dashboard", function() {
 	beforeEach(function() {
-		$('body').append('<div id="container">Loading...</div>');
+		$('body').append('<div id="rates">Loading...</div>');
+	});
+
+	beforeEach(function() {
+		app.MovieRateView = _.extend(app.MovieRateView, {
+			template: _.template('<h1>hello</h1>')
+		});
 	});
 
 	afterEach(function() {
-		$('#container').remove();
+		$('#rates').remove();
 	});
 
-	it("query is initially presented to the user", function() {
-		app = new App(new TestInteractor());
-		expect($("#searchButton").length).toBeGreaterThan(0);
-	});
-
-	it("query is looked up when clicking button", function() {
-		var interactor = new TestInteractor();
-		app = new App(interactor);
-		$('#searchQuery').val("asd");
-		$('#searchButton').trigger("click");
-		expect(interactor.searched).toEqual("asd")
+	it("renders movies as they are added to the movies collection", function() {
+		new app.DashboardView();
+		expect($("#rates").length).toEqual(0);
+		app.movies.add(new app.Movie({title: 'a scanner darkly', author: 'ridley scott', rates: 100}));
+		expect($("#rates").length).toEqual(1);
 	});
 });
