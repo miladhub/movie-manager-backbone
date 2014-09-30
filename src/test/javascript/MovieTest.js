@@ -1,12 +1,10 @@
 describe("Movie manager dashboard", function() {
 	beforeEach(function() {
+		jasmine.getFixtures().fixturesPath = '/src/test/fixtures'
+		loadFixtures('rate-template.html');
 		$('body').append('<div id="rates">Loading...</div>');
-	});
-
-	beforeEach(function() {
-		app.MovieRateView = _.extend(app.MovieRateView, {
-			template: _.template('<h1>hello</h1>')
-		});
+		app.loadModels();
+		app.loadViews(jQuery);
 	});
 
 	afterEach(function() {
@@ -15,8 +13,8 @@ describe("Movie manager dashboard", function() {
 
 	it("renders movies as they are added to the movies collection", function() {
 		new app.DashboardView();
-		expect($("#rates").length).toEqual(0);
+		expect($("#rates").html()).not.toContain('a scanner darkly');
 		app.movies.add(new app.Movie({title: 'a scanner darkly', author: 'ridley scott', rates: 100}));
-		expect($("#rates").length).toEqual(1);
+		expect($("#rates").html()).toContain('a scanner darkly');
 	});
 });

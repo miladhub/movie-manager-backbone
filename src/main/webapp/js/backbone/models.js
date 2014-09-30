@@ -1,5 +1,5 @@
 var app = app || {};
-(function () {
+app.loadModels = function () {
 	'use strict';
 	app.Movie = Backbone.Model.extend({
 		defaults: {
@@ -12,4 +12,4 @@ var app = app || {};
 		model: app.Movie
 	});
 	app.movies = new Movies();
-})();
+};

@@ -1,5 +1,5 @@
 var app = app || {};
-(function ($) {
+app.loadViews = function ($) {
 	'use strict';
 	app.MovieRateView = Backbone.View.extend({
 		template: _.template( $("#rate-template").html() ),
@@ -25,4 +25,4 @@ var app = app || {};
 			this.$el.append(view.render().el);
 		}
 	});
-})(jQuery);
+};
