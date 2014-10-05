@@ -1,7 +1,7 @@
 describe("Movie manager dashboard", function() {
 	beforeEach(function() {
 		jasmine.getFixtures().fixturesPath = '/src/test/fixtures'
-		loadFixtures('rate-template.html');
+		loadFixtures('mock-templates.html');
 		$('body').append('<div id="rates">Loading...</div>');
 		app.loadModels();
 		app.loadViews(jQuery);

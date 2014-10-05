@@ -16,6 +16,9 @@
             <span class="text-muted"><%= title %></span>
         </div>
 	</script>
+	<script type="text/template" id="sidebar-el-template">
+        <a href="#"><%= name %></a>
+	</script>
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
@@ -47,9 +50,7 @@
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Dashboard</a></li>
           </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Categories</a></li>
-            <li><a href="">Authors</a></li>
+          <ul id="sidebar" class="nav nav-sidebar">
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -72,6 +73,8 @@
 		app.loadModels();
 		app.loadViews(jQuery);
 		new app.DashboardView();
+		app.sideBar.add(new app.Category({name : 'sci fi'}));
+		app.sideBar.add(new app.Category({name : 'thriller'}));
 		app.movies.add(new app.Movie({title: 'a scanner darkly', author: 'ridley scott', rates: 100}));
 		app.movies.add(new app.Movie({title: 'blade runner', author: 'ridley scott', rates: 200}));
 		app.movies.add(new app.Movie({title: 'caro diario', author: 'nanni moretti', rates: 200}));

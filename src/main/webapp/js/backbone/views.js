@@ -23,6 +23,29 @@ app.loadViews = function ($) {
 		addOne: function (movie) {
 			var view = new app.MovieRateView({ model: movie });
 			this.$el.append(view.render().el);
+		},
+	});
+	app.SideBarElementView = Backbone.View.extend({
+		tagName: 'li',
+		template: _.template( $("#sidebar-el-template").html() ),
+		render: function() {
+			this.$el.html(this.template(this.model.toJSON()));
+			return this;
+		},
+		events: {
+			"click" : "showElement"
+		},
+		showElement: function(e) {
+			alert("clicked on " + this.model.get('name'));
+			return false;
 		}
 	});
+	app.SideBarView = Backbone.View.extend({
+		el: '#sidebar',
+		add: function (elem) {
+			var view = new app.SideBarElementView({ model: elem });
+			this.$el.append(view.render().el);
+		},
+	});
+	app.sideBar = new app.SideBarView();
 };
