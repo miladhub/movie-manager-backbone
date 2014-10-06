@@ -23,9 +23,9 @@ app.loadViews = function ($) {
 		addOne: function (movie) {
 			var view = new app.MovieRateView({ model: movie });
 			this.$el.append(view.render().el);
-		},
+		}
 	});
-	app.SideBarElementView = Backbone.View.extend({
+	app.CategoryView = Backbone.View.extend({
 		tagName: 'li',
 		template: _.template( $("#sidebar-el-template").html() ),
 		render: function() {
@@ -42,10 +42,21 @@ app.loadViews = function ($) {
 	});
 	app.SideBarView = Backbone.View.extend({
 		el: '#sidebar',
-		add: function (elem) {
-			var view = new app.SideBarElementView({ model: elem });
-			this.$el.append(view.render().el);
+		initialize: function() {
+			this.listenTo(app.categories, 'all', this.render);
 		},
+		render: function() {
+			this.addAll();
+		},
+		addAll: function() {
+			this.$el.html('');
+			app.categories.each(this.addOne, this);
+		},
+		addOne: function (category) {
+			var view = new app.CategoryView({ model: category });
+			this.$el.append(view.render().el);
+		}
 	});
-	app.sideBar = new app.SideBarView();
+	new app.DashboardView();
+	new app.SideBarView();
 };

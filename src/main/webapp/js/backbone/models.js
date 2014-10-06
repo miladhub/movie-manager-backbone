@@ -11,10 +11,14 @@ app.loadModels = function () {
 	var Movies = Backbone.Collection.extend({
 		model: app.Movie
 	});
+	app.movies = new Movies();
 	app.Category = Backbone.Model.extend({
 		defauls: {
 			name: ''
 		}
 	});
-	app.movies = new Movies();
+	var Categories = Backbone.Collection.extend({
+		model: app.Category
+	});
+	app.categories = new Categories();
 };

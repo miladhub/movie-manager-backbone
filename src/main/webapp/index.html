@@ -72,9 +72,8 @@
 	<script type="text/javascript">
 		app.loadModels();
 		app.loadViews(jQuery);
-		new app.DashboardView();
-		app.sideBar.add(new app.Category({name : 'sci fi'}));
-		app.sideBar.add(new app.Category({name : 'thriller'}));
+		app.categories.add(new app.Category({name : 'sci fi'}));
+		app.categories.add(new app.Category({name : 'thriller'}));
 		app.movies.add(new app.Movie({title: 'a scanner darkly', author: 'ridley scott', rates: 100}));
 		app.movies.add(new app.Movie({title: 'blade runner', author: 'ridley scott', rates: 200}));
 		app.movies.add(new app.Movie({title: 'caro diario', author: 'nanni moretti', rates: 200}));
