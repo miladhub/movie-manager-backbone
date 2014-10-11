@@ -9,7 +9,8 @@ app.loadModels = function () {
 		}
 	});
 	var Movies = Backbone.Collection.extend({
-		model: app.Movie
+		model: app.Movie,
+		url: '/movie/rest/movies'
 	});
 	app.movies = new Movies();
 	app.Category = Backbone.Model.extend({

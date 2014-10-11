@@ -15,15 +15,15 @@ public class MovieResource {
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public List<Movie> findAll() {
+	public List<MovieModel> findAll() {
 		System.out.println("findAll");
-		return model.findAll();
+		return MovieModel.fromMovies(model.findAll());
 	}
 
 	@GET @Path("search/{query}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Movie findByName(@PathParam("query") String query) {
+	public MovieModel findByName(@PathParam("query") String query) {
 		System.out.println("findByName: " + query);
-		return model.findByTitle(query);
+		return MovieModel.fromMovie(model.findByTitle(query));
 	}
 }
