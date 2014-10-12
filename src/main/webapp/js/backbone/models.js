@@ -5,7 +5,8 @@ app.loadModels = function () {
 		defaults: {
 			title: '',
 			author: '',
-			rates: 0
+			stars: 0,
+			year: 0
 		}
 	});
 	var Movies = Backbone.Collection.extend({
@@ -19,7 +20,8 @@ app.loadModels = function () {
 		}
 	});
 	var Categories = Backbone.Collection.extend({
-		model: app.Category
+		model: app.Category,
+		url: '/movie/rest/categories'
 	});
 	app.categories = new Categories();
 };

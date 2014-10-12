@@ -22,4 +22,13 @@ public class Review {
 	public void setStars(int stars) {
 		this.stars = stars;
 	}
+	public Review(String author, String body, int stars) {
+		super();
+		this.author = author;
+		this.body = body;
+		this.stars = stars;
+	}
+	public Review() {
+		super();
+	}
 }

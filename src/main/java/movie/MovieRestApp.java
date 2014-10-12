@@ -12,6 +12,7 @@ public class MovieRestApp extends Application {
     public Set<Class<?>> getClasses() {
         Set<Class<?>> s = new HashSet<Class<?>>();
         s.add(MovieResource.class);
+        s.add(CategoryResource.class);
         return s;
     }
 }

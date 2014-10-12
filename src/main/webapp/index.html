@@ -11,9 +11,9 @@
   <body>
 	<script type="text/template" id="rate-template">
         <div class="col-xs-6 col-sm-3 placeholder">
-            <img data-src="holder.js/<%= rates %>x<%= rates %>/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4><%= title %> by <%= author %></h4>
-            <span class="text-muted"><%= title %></span>
+            <img data-src="holder.js/<%= stars %>x<%= stars %>/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+            <h4><%= title %> (<%= year %>)</h4>
+            <span class="text-muted">by <%= author %></span>
         </div>
 	</script>
 	<script type="text/template" id="sidebar-el-template">
@@ -74,7 +74,9 @@
 		app.loadViews(jQuery);
 		app.categories.add(new app.Category({name : 'sci fi'}));
 		app.categories.add(new app.Category({name : 'thriller'}));
-		app.movies.fetch();
+		app.movies.add(new app.Movie({title: 'a scanner darkly', author: 'ridley scott', stars: 100, year: 2001}));
+		app.movies.add(new app.Movie({title: 'blade runner', author: 'ridley scott', stars: 150, year: 2002}));
+		app.movies.add(new app.Movie({title: 'caro diario', author: 'nanni moretti', stars: 200, year: 2003}));
 	</script>
   </body>
 </html>
