@@ -72,8 +72,7 @@
 	<script type="text/javascript">
 		app.loadModels();
 		app.loadViews(jQuery);
-		app.categories.add(new app.Category({name : 'sci fi'}));
-		app.categories.add(new app.Category({name : 'thriller'}));
+		app.categories.fetch();
 		app.movies.add(new app.Movie({title: 'a scanner darkly', author: 'ridley scott', stars: 100, year: 2001}));
 		app.movies.add(new app.Movie({title: 'blade runner', author: 'ridley scott', stars: 150, year: 2002}));
 		app.movies.add(new app.Movie({title: 'caro diario', author: 'nanni moretti', stars: 200, year: 2003}));
