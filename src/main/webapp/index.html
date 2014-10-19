@@ -10,11 +10,15 @@
   </head>
   <body>
 	<script type="text/template" id="rate-template">
-        <div class="col-xs-6 col-sm-3 placeholder">
-            <img data-src="holder.js/<%= stars %>x<%= stars %>/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4><%= title %> (<%= year %>)</h4>
-            <span class="text-muted">by <%= author %></span>
-        </div>
+		<div class="col-xs-6 col-sm-3 placeholder">
+			<h4><%= title %> (<%= year %>)</h4>
+			<span class="text-muted">by <%= author %></span>
+			<div>
+				<% for (var s = 1; s <= stars; s++) { %>
+				<img src="images/star.jpg" height="24" width="24"/>
+				<% } %>
+			</div>
+		</div>
 	</script>
 	<script type="text/template" id="sidebar-el-template">
         <a href="#"><%= name %></a>
@@ -65,7 +69,6 @@
    	<script src="js/underscore-1.3.3.min.js"></script>
 	<script src="js/backbone-min-1.1.2.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/holder.js"></script>
     <script src="js/backbone/models.js"></script>
    	<script src="js/backbone/views.js"></script>
 
@@ -73,9 +76,12 @@
 		app.loadModels();
 		app.loadViews(jQuery);
 		app.categories.fetch();
-		app.movies.add(new app.Movie({title: 'a scanner darkly', author: 'ridley scott', stars: 100, year: 2001}));
-		app.movies.add(new app.Movie({title: 'blade runner', author: 'ridley scott', stars: 150, year: 2002}));
-		app.movies.add(new app.Movie({title: 'caro diario', author: 'nanni moretti', stars: 200, year: 2003}));
+		app.movies.fetch();
+		/* app.categories.add(new app.Category({name : 'sci fi'}));
+		app.categories.add(new app.Category({name : 'thriller'}));
+		app.movies.add(new app.Movie({title: 'a scanner darkly', author: 'ridley scott', stars: 7, year: 2001}));
+		app.movies.add(new app.Movie({title: 'blade runner', author: 'ridley scott', stars: 5, year: 2002}));
+		app.movies.add(new app.Movie({title: 'caro diario', author: 'nanni moretti', stars: 3, year: 2003})); */
 	</script>
   </body>
 </html>

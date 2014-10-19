@@ -8,10 +8,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class MovieModel {
 	public final String title, author;
-	public final int stars, year;
+	public final double stars;
+	public final int year;
 	@SuppressWarnings("unused")
 	private MovieModel() { this(null, null, 0, 0); }
-	public MovieModel(String title, String author, int stars, int year) {
+	public MovieModel(String title, String author, double stars, int year) {
 		super();
 		this.title = title;
 		this.author = author;
@@ -19,14 +20,14 @@ public class MovieModel {
 		this.year = year;
 	}
 	public static MovieModel fromMovie(Movie movie) {
-		return new MovieModel(movie.getTitle(), movie.getAuthor(), sumOfStars(movie), movie.getYear());
+		return new MovieModel(movie.getTitle(), movie.getAuthor(), avgOfStars(movie), movie.getYear());
 	}
-	private static int sumOfStars(Movie movie) {
+	private static double avgOfStars(Movie movie) {
 		int stars = 0;
 		for (Review review : movie.getReviews()) {
 			stars += review.getStars();
 		}
-		return stars;
+		return stars / movie.getReviews().size();
 	}
 	public static List<MovieModel> fromMovies(List<Movie> movies) {
 		List<MovieModel> models = new ArrayList<>();

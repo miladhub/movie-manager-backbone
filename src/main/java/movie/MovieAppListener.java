@@ -23,7 +23,7 @@ public class MovieAppListener implements ServletContextListener {
         bladeRunner.setLanguage("English");
         bladeRunner.setTitle("Blade Runner");
         bladeRunner.setCategory("Sci Fi");
-        bladeRunner.setReviews(Arrays.asList(new Review("Foo", "Awesome", 200)));
+        bladeRunner.setReviews(Arrays.asList(new Review("Foo", "Awesome", 6)));
 
         createFile(bladeRunner);
 
@@ -33,7 +33,7 @@ public class MovieAppListener implements ServletContextListener {
         darkly.setLanguage("English");
         darkly.setTitle("A Scanner Darkly");
         darkly.setCategory("Sci Fi");
-        darkly.setReviews(Arrays.asList(new Review("Foo", "Gorgeous", 100)));
+        darkly.setReviews(Arrays.asList(new Review("Foo", "Gorgeous", 5)));
 
         createFile(darkly);
 
@@ -43,7 +43,7 @@ public class MovieAppListener implements ServletContextListener {
         shining.setLanguage("English");
         shining.setTitle("The Shining");
         shining.setCategory("Thriller");
-        shining.setReviews(Arrays.asList(new Review("Foo", "Great", 100), new Review("Bar", "Good", 50)));
+        shining.setReviews(Arrays.asList(new Review("Foo", "Great", 3), new Review("Bar", "Good", 4)));
 
         createFile(shining);
     }
