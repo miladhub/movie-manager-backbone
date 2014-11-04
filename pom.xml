@@ -37,7 +37,7 @@
 				<version>1.3.1.5</version>
 				<configuration>
 					<preloadSources>
-						<source>src/main/webapp/js/jquery-1.7.1.min.js"></source>
+						<source>src/main/webapp/js/jquery-1.11.1.min.js"></source>
 					   	<source>src/main/webapp/js/underscore-1.3.3.min.js"></source>
 						<source>src/main/webapp/js/backbone-min-1.1.2.js"></source>
 					    <source>src/main/webapp/js/backbone/models.js"></source>
