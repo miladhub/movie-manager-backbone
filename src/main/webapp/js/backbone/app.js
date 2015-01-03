@@ -1,6 +1,32 @@
-var app = app || {};
-app.loadViews = function ($) {
+var App = function() {
 	'use strict';
+	
+	var app = {};
+	
+	app.Movie = Backbone.Model.extend({
+		defaults: {
+			title: '',
+			author: '',
+			stars: 0,
+			year: 0
+		}
+	});
+	var Movies = Backbone.Collection.extend({
+		model: app.Movie,
+		url: '/movie/rest/movies'
+	});
+	app.movies = new Movies();
+	app.Category = Backbone.Model.extend({
+		defaults: {
+			name: ''
+		}
+	});
+	var Categories = Backbone.Collection.extend({
+		model: app.Category,
+		url: '/movie/rest/categories'
+	});
+	app.categories = new Categories();
+	
 	app.MovieRateView = Backbone.View.extend({
 		template: _.template( $("#rate-template").html() ),
 		render: function() {
@@ -59,4 +85,6 @@ app.loadViews = function ($) {
 	});
 	new app.DashboardView();
 	new app.SideBarView();
+	
+	return app;
 };

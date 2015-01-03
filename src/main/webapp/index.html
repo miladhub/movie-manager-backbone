@@ -69,12 +69,10 @@
    	<script src="js/underscore-1.3.3.min.js"></script>
 	<script src="js/backbone-min-1.1.2.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/backbone/models.js"></script>
-   	<script src="js/backbone/views.js"></script>
+    <script src="js/backbone/app.js"></script>
 
 	<script type="text/javascript">
-		app.loadModels();
-		app.loadViews(jQuery);
+		var app = new App();
 		app.categories.fetch();
 		app.movies.fetch();
 		/* app.categories.add(new app.Category({name : 'sci fi'}));
