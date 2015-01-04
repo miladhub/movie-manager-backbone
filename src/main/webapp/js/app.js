@@ -13,7 +13,7 @@ var App = function() {
 	});
 	var Movies = Backbone.Collection.extend({
 		model: app.Movie,
-		url: '/movie/rest/movies'
+		url: 'rest/movies'
 	});
 	app.movies = new Movies();
 	app.Category = Backbone.Model.extend({
@@ -23,7 +23,7 @@ var App = function() {
 	});
 	var Categories = Backbone.Collection.extend({
 		model: app.Category,
-		url: '/movie/rest/categories'
+		url: 'rest/categories'
 	});
 	app.categories = new Categories();
 	
